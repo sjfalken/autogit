@@ -1,0 +1,16 @@
+[project]
+name = "autogit"
+version = "0.1.0"
+description = "auto git is a tool that automates git operations using mcp and llms."
+requires-python = ">=3.10"
+authors = [{ name = "Stefan Falkenstein" }]
+maintainers = [{ name = "Stefan Falkenstein", email = "stefan@falkenste.in" }]
+keywords = ["git", "mcp", "llm", "automation"]
+license = { text = "MIT" }
+dependencies = [
+    "anthropic>=0.84.0",
+]
+
+
+[project.scripts]
+autogit = "autogit:main"
