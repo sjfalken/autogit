@@ -27,8 +27,11 @@ in
       export ANTHROPIC_API_KEY="$(cat ${cfg.apiKeyFile})"
     '';
 
-    git-hooks.hooks.prepare-commit-msg = {
+    git-hooks.default_stages = [ "prepare-commit-msg" ];
+
+    git-hooks.hooks.autogit = {
       enable = true;
+      stages = [ "prepare-commit-msg" ];
       entry = toString (pkgs.writeShellScript "autogit-hook" ''
         COMMIT_MSG_FILE="$1"
         COMMIT_SOURCE="$2"
