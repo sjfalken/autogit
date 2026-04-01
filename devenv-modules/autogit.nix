@@ -41,7 +41,7 @@ in
         fi
 
         DIFF=$(git diff -U20 --cached --no-color)
-        MESSAGE=$(autogit "$DIFF")
+        MESSAGE=$(${autogit}/bin/autogit "$DIFF")
 
         if [ -n "$MESSAGE" ]; then
           printf '%s\n\n' "$MESSAGE" | cat - "$COMMIT_MSG_FILE" > /tmp/commit_msg_tmp
