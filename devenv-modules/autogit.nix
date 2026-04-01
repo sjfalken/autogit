@@ -34,9 +34,8 @@ in
       stages = [ "prepare-commit-msg" ];
       entry = toString (pkgs.writeShellScript "autogit-hook" ''
         COMMIT_MSG_FILE="$1"
-        COMMIT_SOURCE="$2"
 
-        if [ -n "$COMMIT_SOURCE" ]; then
+        if [ -n "$PRE_COMMIT_COMMIT_MSG_SOURCE" ]; then
           exit 0
         fi
 
@@ -48,7 +47,7 @@ in
           mv /tmp/commit_msg_tmp "$COMMIT_MSG_FILE"
         fi
       '');
-      pass_filenames = false;
+      pass_filenames = true;
     };
   };
 }
